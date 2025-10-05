@@ -42,3 +42,6 @@ mvn clean install -DskipTests
 mvn spring-boot:run
 
 ```
+### 3 Oauth 2.0 Login API URL
+
+http://Host:Port/oauth2/authorization/google
