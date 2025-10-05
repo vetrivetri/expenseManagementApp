@@ -1,0 +1,73 @@
+spring:
+  application:
+          name: ExpenseManagementApp
+  h2:
+    console:
+        enabled: true
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 758281247769-5n3br6kcpr1i34tq3jmeu2ee3rumcrc3.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid, profile, email
+            redirect-uri: "http://localhost:8080/login/oauth2/code/google"
+            authorization-grant-type: authorization_code
+            provider: google
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+
+        provider:
+          google:
+            authorization-uri: https://accounts.google.com/o/oauth2/v2/auth
+            token-uri: https://oauth2.googleapis.com/token
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
+            user-name-attribute: sub
+
+  datasource:
+    #url: jdbc:h2:~/test
+    url: jdbc:h2:tcp://localhost/~/test
+    driver-class-name: org.h2.Driver
+    hikari:
+      pool-name: ExpenseManagementPool
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 20000
+      max-lifetime: 1800000
+
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: true
+        show_sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+#springdoc:
+ # swagger-ui:
+  #  oauth:
+   #   client-id: 758281247769-5n3br6kcpr1i34tq3jmeu2ee3rumcrc3.apps.googleusercontent.com
+    #  client-secret: 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
+     # use-pkce-with-authorization-code-grant: true
+    #disable-swagger-default-url: true
+
+baseUrl : http://localhost:8080/
