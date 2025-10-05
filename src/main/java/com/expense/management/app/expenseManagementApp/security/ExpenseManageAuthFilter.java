@@ -37,7 +37,8 @@ public class ExpenseManageAuthFilter extends OncePerRequestFilter {
 
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
-            validateIdToken(token);
+            GoogleTokenInfo tokenInfo=   validateIdToken(token);
+            request.setAttribute("x-api-user",tokenInfo.email());
     }
         String path = request.getRequestURI();
         if (EXCLUDED_PATHS.stream().anyMatch(path::startsWith)) {

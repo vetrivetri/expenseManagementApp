@@ -1,17 +1,14 @@
 package com.expense.management.app.expenseManagementApp.controller;
 
 import com.expense.management.app.expenseManagementApp.beans.ExpenseRequestBean;
-import com.expense.management.app.expenseManagementApp.beans.GroupRequestBean;
 import com.expense.management.app.expenseManagementApp.entity.ExpenseData;
 import com.expense.management.app.expenseManagementApp.exception.ExpenseManagementException;
 import com.expense.management.app.expenseManagementApp.service.ExpenseManageService;
 import jakarta.validation.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;

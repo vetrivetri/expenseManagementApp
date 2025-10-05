@@ -1,6 +1,8 @@
+
 spring:
   application:
           name: ExpenseManagementApp
+  admin: "vetri129@gmail.com"
   h2:
     console:
         enabled: true
@@ -48,6 +50,8 @@ spring:
         format_sql: true
         show_sql: true
 
+
+
 management:
   endpoints:
     web:
@@ -71,3 +75,4 @@ logging:
     #disable-swagger-default-url: true
 
 baseUrl : http://localhost:8080/
+

@@ -11,4 +11,5 @@ public interface SplitDataRepository extends JpaRepository<SplitEntity,Long> {
     List<SplitEntity> findByExpense(ExpenseData expense);
 
     List<SplitEntity> findByExpenseAndUser(ExpenseData expense, UserData user);
+
 }

@@ -40,7 +40,7 @@ public class SettlementServiceImpl implements SettlementService {
     public SettlementData settleAmount(Long expenseId, Long payerId, Long receiverId, BigDecimal amount) throws ExpenseManagementException{
         try {
             ExpenseData expense = expenseRepo.findById(expenseId)
-                    .orElseThrow(() -> new RuntimeException("Expense not found"));
+                    .orElseThrow(() ->new ExpenseManagementException("Expense Not Found",ExpenseManagementConstants.NO_DATA_FOUND));
             GroupsEntity group = expense.getGroup();
             UserData payer = userRepo.findById(payerId)
                     .orElseThrow(() -> new ExpenseManagementException(ExpenseManagementConstants.NO_DATA_FOUND_USER,ExpenseManagementConstants.NO_DATA_FOUND));
@@ -59,7 +59,8 @@ public class SettlementServiceImpl implements SettlementService {
             // 1. Fetch current balance
             BalanceSheet balance = balanceSheetRepository
                     .findByGroupAndFromUserAndToUser(group, payer, receiver)
-                    .orElseThrow(() -> new IllegalStateException("No balance found"));
+                    .orElseThrow(() -> new ExpenseManagementException("NO Balance Found",ExpenseManagementConstants.GENERIC_ERROR_CODE)
+);
 
             // 2. Validate settlement amount
             if (balance.getAmount().compareTo(amount) < 0) {

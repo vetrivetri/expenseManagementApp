@@ -1,5 +1,6 @@
 package com.expense.management.app.expenseManagementApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,6 +19,7 @@ public class BalanceSheet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "GROUP_ID", nullable = false)
+    @JsonIgnore
     private GroupsEntity group;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -69,7 +69,6 @@ public class SecurityConfig {
     public SecurityFilterChain swaggerSecurity(HttpSecurity http) throws Exception {
         return http
                 .securityMatcher(
-
                         "/swagger-ui.html",
                         "/swagger-ui/**",
                         "/v3/api-docs/**",

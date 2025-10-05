@@ -49,6 +49,8 @@ public class GroupsEntity {
     private List<ExpenseData> expenses;
     @Column(name = "GROUP_TYPE")
     private GroupTypeEnum groupType;
+    @OneToMany(mappedBy = "group", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BalanceSheet> balanceSheet;
 
 
 }

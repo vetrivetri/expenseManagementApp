@@ -45,4 +45,8 @@ public class ExpenseData {
     @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL)
     private List<SettlementData> settlementData;
 
+    @OneToMany(mappedBy = "expense", cascade = CascadeType.ALL)
+    private List<SplitEntity> splits;
+
+
 }

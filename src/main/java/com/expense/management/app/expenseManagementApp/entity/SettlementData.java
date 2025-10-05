@@ -1,5 +1,6 @@
 package com.expense.management.app.expenseManagementApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -40,6 +41,7 @@ public class SettlementData {
 
     @ManyToOne
     @JoinColumn(name = "EXPENSE_PK_ID")
+    @JsonIgnore
     private ExpenseData expense;
 
     private LocalDateTime timestamp;

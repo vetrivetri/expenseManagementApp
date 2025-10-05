@@ -1,5 +1,6 @@
 package com.expense.management.app.expenseManagementApp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class SplitEntity {
     // The expense this split belongs to
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "expense_id", nullable = false)
+    @JsonIgnore
     private ExpenseData expense;
 
     // The user who owes this share
